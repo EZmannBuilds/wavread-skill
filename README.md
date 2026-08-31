@@ -30,8 +30,14 @@ Your audio never leaves your machine. The exports are text.
 ## Version
 
 This skill is versioned to the WavRead build it was verified against — currently
-**1.4.47**. If your app is newer and its screens disagree with the skill, believe
-the app.
+**1.4.47, revision 2**. The version tracks the build; the revision counts changes to
+the skill itself between builds. If your app is newer and its screens disagree with
+the skill, believe the app.
+
+**Revision 2** adds the context WavRead already records and an agent was ignoring:
+the genre preset, stage and mix type that decide which findings matter at all, and
+the reader's experience level, which decides whether the answer is a step-by-step or
+a set of numbers.
 
 ## Licence
 
