@@ -15,8 +15,15 @@ failure modes, and the cross-table findings WavRead's own rule engine cannot pro
 npx skills add EZmannBuilds/wavread-skill
 ```
 
-Or download [`skills/wavread/SKILL.md`](skills/wavread/SKILL.md) and drop it into
-your agent's skills directory.
+Or copy [`skills/wavread/`](skills/wavread) into your agent's skills directory.
+
+## What is in it
+
+| File | Loaded |
+|---|---|
+| `SKILL.md` | Always. Every rule and every prohibition is here, so it works on its own |
+| `references/reading-sections.md` | When the agent reads a specific section of a document closely |
+| `references/operating-wavread.md` | When you ask how to *run* WavRead rather than what your document means |
 
 ## Use it
 
@@ -37,7 +44,8 @@ the skill, believe the app.
 **Revision 2** adds the context WavRead already records and an agent was ignoring:
 the genre preset, stage and mix type that decide which findings matter at all, and
 the reader's experience level, which decides whether the answer is a step-by-step or
-a set of numbers.
+a set of numbers. It also splits the per-section detail and the operating guide into
+the two reference files above, so a conversation only pays for what it uses.
 
 ## Licence
 
