@@ -37,7 +37,7 @@ Your audio never leaves your machine. The exports are text.
 ## Version
 
 This skill is versioned to the WavRead build it was verified against — currently
-**1.4.47, revision 2**. The version tracks the build; the revision counts changes to
+**1.5.3.1**. The version tracks the build; the revision counts changes to
 the skill itself between builds. If your app is newer and its screens disagree with
 the skill, believe the app.
 
