@@ -47,9 +47,10 @@ the reader's experience level, which decides whether the answer is a step-by-ste
 a set of numbers. It also splits the per-section detail and the operating guide into
 the two reference files above, so a conversation only pays for what it uses.
 
-From 1.5.6 WavRead also ships its own MCP helper. Settings › AI assistants in the
-app shows the line to add it to Claude Desktop, Claude Code or Codex, and the skill
-prefers its tools when it is connected.
+From 1.5.6 WavRead also ships its own MCP helper inside the app, at
+`/Applications/WavRead.app/Contents/Helpers/WavRead MCP.app/Contents/MacOS/wavread-mcp`.
+The app does not show it; add it to Claude Desktop, Claude Code or Codex by that
+path, and the skill prefers its tools when it is connected.
 
 ## Licence
 
