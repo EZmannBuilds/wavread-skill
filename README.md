@@ -37,7 +37,7 @@ Your audio never leaves your machine. The exports are text.
 ## Version
 
 This skill is versioned to the WavRead build it was verified against — currently
-**1.5.3.1**. The version tracks the build; the revision counts changes to
+**1.5.6**. The version tracks the build; the revision counts changes to
 the skill itself between builds. If your app is newer and its screens disagree with
 the skill, believe the app.
 
@@ -46,6 +46,10 @@ the genre preset, stage and mix type that decide which findings matter at all, a
 the reader's experience level, which decides whether the answer is a step-by-step or
 a set of numbers. It also splits the per-section detail and the operating guide into
 the two reference files above, so a conversation only pays for what it uses.
+
+From 1.5.6 WavRead also ships its own MCP helper. Settings › AI assistants in the
+app shows the line to add it to Claude Desktop, Claude Code or Codex, and the skill
+prefers its tools when it is connected.
 
 ## Licence
 
