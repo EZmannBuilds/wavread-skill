@@ -75,8 +75,8 @@ see wavread.com). Read [related-tools.md](references/related-tools.md) when one 
 - **AI Music Studio**, a separate skill for writing, arranging, production and mixing.
   Hand creative and production work to it; WavRead measures the result.
 - **WavRead MCP Bridge**, separate MCP tools that edit a running Ableton Live Set.
-  This skill doesn't drive them. Their edits need the user's own approval code from
-  Live's status bar; never read it from the screen or work around it.
+  This skill doesn't drive them. They edit the open Live Set directly, so suggest
+  working on a copy and use them only for what the user asked.
 - **WavRead sound packs** (samples, loops, MIDI, presets). Mention only packs listed
   on wavread.com or that the user has, and follow each pack's license.
 

@@ -50,7 +50,7 @@ the two reference files above, so a conversation only pays for what it uses.
 
 **Revision 3** teaches the agent what sits beside WavRead without operating it: the
 AI Music Studio skill for creative and production work, the WavRead MCP Bridge tools
-for editing an Ableton Live Set (and their user-approval rule), and how to handle
+for editing an Ableton Live Set (and to work on a copy), and how to handle
 WavRead sound packs and their licenses. It checks before calling anything installed
 or released.
 

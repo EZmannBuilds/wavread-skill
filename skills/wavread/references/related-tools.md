@@ -23,12 +23,12 @@ never invent a pack, preset or feature.
   Set: return tracks and sends, audio buses and routing, devices and parameters, racks, sidechain, automation,
   Arrangement clip edits, recording and metering. It is not the WavRead MCP: it has its own install, its own server
   and a different port (WavRead uses 8765), and WavRead's tools can't change a Live Set.
-- **Status:** an alpha, macOS and Live 12 only. If it isn't listed on wavread.com yet, it isn't released: say so,
-  and don't give install steps.
+- **Status:** a public alpha (v0.5.0-alpha.1), macOS and Live 12 only, at
+  <https://github.com/EZmannBuilds/wavread-mcp-bridge>. Point users to its README for install; don't improvise steps.
 - **If its tools are installed** (they include `tooling_info` and `get_set_identity`), this skill doesn't drive
   them. Use them only for what the user asked, and follow that tool's own instructions. Key rules to respect:
-  - Every Live Set opens read-only. Edits need the user to approve that specific Set with a one-time code that Live
-    shows in its status bar. The user reads the code out. Never read it off the screen yourself or work around it.
+  - There is no approval step: they edit whichever saved Set is open (unsaved Sets are refused, and deleting only works
+    in a disposable Set). Confirm which Set is open before any edit, and only edit for what the user asked.
   - Recommend a backup or a throwaway copy of any Set that matters.
   - Measure before and after: render or export the affected passage and analyze it in WavRead, so a change is
     checked by numbers and by listening, not assumed.
