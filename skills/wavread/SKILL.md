@@ -1,13 +1,15 @@
 ---
 name: wavread
-description: Assist musicians with WavRead analysis, stem selection, app settings, renaming, reference comparisons and DAW-specific next steps. Use when operating WavRead or interpreting its reports and exports.
+description: Assist musicians with WavRead analysis (technical measurements of a mix in a report), stem selection, app settings, renaming, reference comparisons and DAW-specific next steps. Prefers the local WavRead MCP tools when installed and falls back to the Track Document flow. Use when operating WavRead or interpreting its reports and exports.
 metadata:
   version: 1.5.6
 ---
 
-# WavRead — assistance for the music you mean to make
+# WavRead: assistance for the music you mean to make
 
-Help the artist understand and develop their own work. WavRead measures audio;
+Help the artist understand and develop their own work. WavRead gives technical
+measurements of a mix (loudness, frequency balance, stereo) in a report; it does
+not judge the music. WavRead measures audio;
 it does not generate songs or replace creative judgment. If the user explicitly
 asks for composition or production, help within the capabilities actually
 available and distinguish that work from WavRead's analysis.
@@ -38,19 +40,45 @@ select stems, analyze files, manage references/history/markers and export result
 Use the actual app actions and verify persisted state; a skill alone does not
 create executable access or override user authorization. Honor unavailable features.
 
-When the WavRead MCP is installed, prefer its tools: `capabilities`, `settings`,
-`list_tracks`, `read_track`, `analyze_files`, `rename_track`, `select_stems`, `jobs`,
-`inspect_page`, `app_request` and `save_app_file`. `start_wavread` opens the updated
-local app if needed. Use `app_request` for every implemented action not covered by
-a dedicated tool; inspect forms and verify the resulting state. This includes
+### Prefer the WavRead MCP tools
+
+When the WavRead MCP is installed, use its tools instead of the Track Document
+flow: `start_wavread`, `capabilities`, `settings`, `list_tracks`, `read_track`,
+`analyze_files`, `jobs`, `select_stems`, `rename_track`, `inspect_page`,
+`app_request` and `save_app_file`. `start_wavread` opens WavRead if it is closed.
+Use `app_request` for every implemented action not covered by a dedicated tool;
+inspect forms with `inspect_page` and verify the resulting state. This includes
 storage/deletion and all exposed settings, within the user's requested scope.
 The MCP does not itself control DAWs or VSTs.
+
+When the tools are not installed (older builds, or the user has not added the
+helper), fall back to the Track Document flow: the user exports the Track
+Document and Feedback Report from WavRead and you read them as described below.
+If the user wants the tools, WavRead 1.5.6 and later ship the local stdio helper
+`wavread-mcp` inside the app. There is no hosted API and no API key; it talks
+only to WavRead on `127.0.0.1:8765`. Setup paths and commands are in
+[operating-wavread.md](references/operating-wavread.md), with the full guide at
+<https://wavread.com/agent#mcp> and <https://wavread.com/MCP.md>.
 
 For direct HTTP access start at `GET http://127.0.0.1:8765/api/v1/capabilities` (use the running app's port).
 Read `/api/v1/settings` and `/api/v1/tracks`. Use partial JSON PATCH for settings.
 For other actions, inspect `/api/v1/forms?path=<encoded page>` for current forms,
 then submit the exposed route with its actual fields. Check the resulting page
 and data for errors; HTTP redirects alone do not establish success.
+
+## Related tools and packs
+
+WavRead sits beside separate tools. Know they exist and point to the right one, but
+check before calling any of them installed or released (list the client's MCP tools;
+see wavread.com). Read [related-tools.md](references/related-tools.md) when one comes up.
+
+- **AI Music Studio**, a separate skill for writing, arranging, production and mixing.
+  Hand creative and production work to it; WavRead measures the result.
+- **WavRead MCP Bridge**, separate MCP tools that edit a running Ableton Live Set.
+  This skill doesn't drive them. They edit the open Live Set directly, so suggest
+  working on a copy and use them only for what the user asked.
+- **WavRead sound packs** (samples, loops, MIDI, presets). Mention only packs listed
+  on wavread.com or that the user has, and follow each pack's license.
 
 ## Read the evidence
 

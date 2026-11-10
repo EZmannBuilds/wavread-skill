@@ -48,14 +48,30 @@ Each enabled part has `/track/<name>/stem/<stem>` and a `/data` JSON endpoint.
 WavRead does not capture from a DAW. Export aligned stems from the DAW and
 import them. WavRead can
 compare references/versions; use the available reference workspace and both readings.
-From 1.5.6 the app ships its own MCP helper, `wavread-mcp`, at
-`/Applications/WavRead.app/Contents/Helpers/WavRead MCP.app/Contents/MacOS/wavread-mcp`
-on a Mac (`%LOCALAPPDATA%\Programs\WavRead\mcp\wavread-mcp.exe` on Windows).
-The app does not mention it anywhere, so do not send the user looking for an
-AI setting: add the helper to the client by that path. It provides common typed
-tools plus `app_request` for all implemented routes and `inspect_page` for
-current forms. Prefer these tools when installed; the Markdown skill is
-guidance, not the executable server. Earlier builds have no helper, and a
-source checkout runs `integrations/wavread_mcp/server.py` instead (see
-`docs/MCP.md` there).
-Audio stays local; returned measurements and text enter the assistant conversation.
+From 1.5.6 (Mac Apple Silicon, macOS 14+; Windows 10/11 64-bit) the app ships
+its own local stdio MCP helper, `wavread-mcp`. There is no hosted API and no API
+key. The helper opens WavRead if it is closed and talks only to loopback
+`127.0.0.1:8765`. The app does not mention it anywhere, so do not send the user
+looking for an AI setting: add the helper to the client by its path.
+
+| OS | Path |
+|---|---|
+| macOS | `/Applications/WavRead.app/Contents/Helpers/WavRead MCP.app/Contents/MacOS/wavread-mcp` |
+| Windows | `%LOCALAPPDATA%\Programs\WavRead\mcp\wavread-mcp.exe` |
+
+- Claude Code: `claude mcp add --scope user wavread -- "<path>"`
+- Codex: `codex mcp add wavread -- "<path>"`
+- Claude Desktop: add to `mcpServers` in the config JSON, with that command and
+  no args: `{"mcpServers": {"wavread": {"command": "<path>", "args": []}}}`
+- Any other MCP client (Cursor and others): run it as a local stdio server with
+  that command and no arguments.
+
+Twelve tools: `start_wavread`, `capabilities`, `settings`, `list_tracks`,
+`read_track`, `analyze_files`, `jobs`, `select_stems`, `rename_track`,
+`inspect_page`, `app_request` and `save_app_file`. `app_request` reaches every
+implemented route and `inspect_page` shows current forms. Prefer these tools when
+installed; otherwise use the Track Document flow. The Markdown skill is guidance,
+not the executable server. Earlier builds have no helper, and a source checkout
+runs `integrations/wavread_mcp/server.py` instead.
+Audio stays on the computer; returned measurements and text enter the assistant
+conversation. Guides: <https://wavread.com/agent#mcp> and <https://wavread.com/MCP.md>.
