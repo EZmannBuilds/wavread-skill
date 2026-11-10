@@ -66,6 +66,20 @@ For other actions, inspect `/api/v1/forms?path=<encoded page>` for current forms
 then submit the exposed route with its actual fields. Check the resulting page
 and data for errors; HTTP redirects alone do not establish success.
 
+## Related tools and packs
+
+WavRead sits beside separate tools. Know they exist and point to the right one, but
+check before calling any of them installed or released (list the client's MCP tools;
+see wavread.com). Read [related-tools.md](references/related-tools.md) when one comes up.
+
+- **AI Music Studio**, a separate skill for writing, arranging, production and mixing.
+  Hand creative and production work to it; WavRead measures the result.
+- **WavRead MCP Bridge**, separate MCP tools that edit a running Ableton Live Set.
+  This skill doesn't drive them. Their edits need the user's own approval code from
+  Live's status bar; never read it from the screen or work around it.
+- **WavRead sound packs** (samples, loops, MIDI, presets). Mention only packs listed
+  on wavread.com or that the user has, and follow each pack's license.
+
 ## Read the evidence
 
 Use structured JSON for numbers and the report for context. Read

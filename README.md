@@ -24,6 +24,7 @@ Or copy [`skills/wavread/`](skills/wavread) into your agent's skills directory.
 | `SKILL.md` | Always. Every rule and every prohibition is here, so it works on its own |
 | `references/reading-sections.md` | When the agent reads a specific section of a document closely |
 | `references/operating-wavread.md` | When you ask how to *run* WavRead rather than what your document means |
+| `references/related-tools.md` | When a related tool or a sound pack comes up: AI Music Studio, WavRead MCP Bridge, WavRead sound packs |
 
 ## Use it
 
@@ -46,6 +47,12 @@ the genre preset, stage and mix type that decide which findings matter at all, a
 the reader's experience level, which decides whether the answer is a step-by-step or
 a set of numbers. It also splits the per-section detail and the operating guide into
 the two reference files above, so a conversation only pays for what it uses.
+
+**Revision 3** teaches the agent what sits beside WavRead without operating it: the
+AI Music Studio skill for creative and production work, the WavRead MCP Bridge tools
+for editing an Ableton Live Set (and their user-approval rule), and how to handle
+WavRead sound packs and their licenses. It checks before calling anything installed
+or released.
 
 ## WavRead MCP (1.5.6 and later)
 
